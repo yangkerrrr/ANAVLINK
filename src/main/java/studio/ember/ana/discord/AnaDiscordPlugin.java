@@ -4,7 +4,7 @@ import com.google.inject.Inject;
 import com.velocitypowered.api.event.Subscribe;
 import com.velocitypowered.api.event.connection.DisconnectEvent;
 import com.velocitypowered.api.event.connection.PostLoginEvent;
-import com.velocitypowered.api.event.player.ChatEvent;
+import com.velocitypowered.api.event.player.PlayerChatEvent;
 import com.velocitypowered.api.plugin.Plugin;
 import com.velocitypowered.api.plugin.annotation.DataDirectory;
 import com.velocitypowered.api.proxy.ProxyServer;
@@ -99,7 +99,7 @@ public final class AnaDiscordPlugin {
     }
 
     @Subscribe
-    public void onMinecraftChat(ChatEvent event) {
+    public void onMinecraftChat(PlayerChatEvent event) {
         Config settings = config;
         TextChannel target = channel;
         if (settings == null || target == null || !settings.minecraftToDiscord()
